@@ -1,0 +1,34 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "tech.bano.bpe"
+    }
+  }
+}
