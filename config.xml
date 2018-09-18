@@ -111,8 +111,8 @@
         <allow-intent href="itms-apps:*" />
         <preference name="BackupWebStorage" value="none" />
     </platform>
-    <icon src="btIcon.png" />
-    <icon platform="ios" src="btIcon.png" />
+    <icon src="bpe-icon-192.png" />
+    <icon platform="ios" src="bpe-icon-192.png" />
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
