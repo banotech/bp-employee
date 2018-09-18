@@ -4,9 +4,20 @@
   "name": "Barrett Plumbing Employee",
   "short_name": "Barrett Plumbing Employee",
   "version": "tech.bano.bpe",
-  "description": "Hello World sample application that responds to the deviceready event.",
-  "author": "PhoneGap Team",
-  "icons": [],
+  "description": "Barrett Plumbing employee access.",
+  "author": "Banotech Software",
+  "icons": [
+    {
+      "src": "btIcon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    },
+    {
+      "src": "btIcon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
   "start_url": "index.html",
   "theme_color": "#2196f3"
 }
