@@ -1,0 +1,72 @@
+<div class="page" data-name="settings">
+	<div class="navbar">
+		<div class="navbar-inner sliding">
+			<div class="left">
+				<a href="#" class="link back">
+					<i class="icon icon-back"></i>
+					<span class="ios-only">Back</span>
+				</a>
+			</div> 
+			<div class="title">Settings</div>
+			<div class="right">
+				<a href="#" class="link icon-only panel-open" data-panel="left">
+					<i class="icon f7-icons ios-only">menu</i>
+					<i class="icon material-icons md-only">menu</i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="page-content">
+		<div class="block-title">System Style</div>
+		<div class="row">
+			<div class="col-50">
+				<button class="button button-fill button-round button-raised color-red" onClick="bp.setOsTheme('ios')">iOS</button>
+			</div>
+			<div class="col-50">
+				<button class="button button-fill button-round button-raised color-red" onClick="bp.setOsTheme('md')">Android</button>
+			</div>
+		</div>
+		<div class="block-title">Layout Themes</div>
+		<div class="block">
+			<div class="row">
+				<div class="col-50 bg-color-white" onClick="bp.setLayoutTheme('light')"style="cursor: pointer; padding: 30px; border: 1px solid rgba(0,0,0,0.1);color:black;">Day</div>
+				<div class="col-50 bg-color-black" onClick="bp.setLayoutTheme('dark')"  style="cursor: pointer; padding: 30px; border: 1px solid rgba(255,255,255,0.1);color:white;">Night</div>
+			</div>
+		</div>
+		<div class="block-title">Choose Color Theme</div>
+		<div class="block">
+			<p>Framework7 comes with {{colorsAmount}} color themes set.</p>
+			<div class="row">
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-blue" onClick="bp.setColorTheme('blue')">Blue</button>
+				</div>
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-green" onClick="bp.setColorTheme('green')">Green</button>
+				</div>
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-red" onClick="bp.setColorTheme('red')">Red</button>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-pink" onClick="bp.setColorTheme('pink')">Pink</button>
+				</div>
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-yellow" onClick="bp.setColorTheme('yellow')">Yellow</button>
+				</div>
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-orange" onClick="bp.setColorTheme('orange')">Orange</button>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-33"></div>
+				<div class="col-33">
+					<button class="button button-fill button-round button-raised color-gray" onClick="bp.setColorTheme('gray')">Gray</button>
+				</div>
+				<div class="col-33"></div>
+			</div>
+		</div>
+    </div>
+</div>

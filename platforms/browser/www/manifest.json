@@ -8,12 +8,12 @@
   "author": "Banotech Software",
   "icons": [
     {
-      "src": "btIcon.png",
+      "src": "bpe-icon-192.png",
       "type": "image/png",
       "sizes": "undefinedxundefined"
     },
     {
-      "src": "btIcon.png",
+      "src": "bpe-icon-192.png",
       "type": "image/png",
       "sizes": "undefinedxundefined"
     }

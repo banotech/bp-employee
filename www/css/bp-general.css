@@ -1,0 +1,44 @@
+.text-center{
+	text-align:center;
+}
+.text-left{
+	text-align:left;
+}
+.text-right{
+	text-align:right;
+}
+.header{
+	width:calc(100%-20px);
+	height:auto;
+	text-align:center;
+	margin-top:-20px;
+	padding:10px;
+}
+.page-content{
+	padding:0px 10px 0px 10px;
+}
+.header h1{
+	/*color:white;*/
+	text-shadow:0px 0px 5px gray;
+	padding:20px auto 20px auto;
+}
+.header p{
+	/*color:white;*/
+	text-shadow:0px 0px 5px gray;
+	padding:20px auto 20px auto;
+}
+.statusbar {
+  background: blue;
+  /* We can add transition for smooth color animation */
+  transition: 400ms;
+}
+html.with-panel-left-cover .statusbar {
+  background: gray;
+}
+.error-report{
+	width:100%;
+	text-align:center;
+	color:gray;
+	border-top:1px solid gray;
+	opacity:0.5;
+}
