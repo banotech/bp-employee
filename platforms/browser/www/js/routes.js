@@ -22,6 +22,17 @@ var routes = [
 		url: './pages/settings.html',
 		name: "settings",
 	},
+	{
+		path: '/punch/', 
+		url: './pages/punch.html',
+		name: "punch",
+		on: {
+			pageInit: function() {
+				bp.lockApp();
+				bp.verifyPin();
+			},
+		}
+	},
 
 	// Default route (404 page). MUST BE THE LAST
 	{

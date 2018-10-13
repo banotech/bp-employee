@@ -1,7 +1,7 @@
 // Dom7
 var $ = Dom7;
 
-var version = "103";
+var version = "104";
 
 // Theme
 var theme = "ios";
@@ -11,6 +11,8 @@ if(bp.storage.get("os-theme") != null)
 var backPress = 0;
 var homeError = false;
 // Init App
+
+Framework7.use(Framework7Keypad);
 var app = new Framework7({
   id: 'tech.bano.bpe',
   root: '#app',
@@ -32,6 +34,7 @@ var app = new Framework7({
 	pageInit: function(page){
 		$(".app-version").html(version);
 		backPress = 0;
+		bp.update();
 		if(page.name == "home"){
 			if(!homeError)
 				$(".error-report").html("Status: OK");

@@ -1,3 +1,65 @@
+.button .f7-icons{
+	font-weight:bold;
+}
+.half-sheet{
+	min-height:50vh;
+}
+.full-sheet{
+	min-height:100vh;
+	
+}
+.tq-sheet{
+	min-height:75vh;
+	
+}
+.block.passcode-input {
+      position: relative;
+      z-index: 5;
+    }
+    .block.passcode-numpad {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin-bottom: 0;
+      max-width: none;
+      z-index: 10;
+    }         
+#demo-numpad-inline {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      .border-box();
+      border: none;
+      background: none;
+      border-radius: 0 0 0 0;
+      .box-shadow(none);
+      display: block;
+      padding: 0 0 0 5px;
+      margin: 0;
+      width: 100%;
+      height: 43px;
+      color: #999;
+      font-size: 17px;
+      font-family: inherit;
+      letter-spacing: 5px;
+      text-align: center;
+      font-size: 25px;
+      font-weight: 300;
+    }
+.center-screen{
+	width:100%;
+	height:100px;
+	margin:auto;
+	text-align:center;
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	
+}
 .text-center{
 	text-align:center;
 }

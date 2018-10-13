@@ -9,9 +9,11 @@
 		<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
 		<title>Barrett Plumbing - Employee</title>
 		<link rel="stylesheet" href="f7/css/framework7.min.css">
+		<link rel="stylesheet" href="f7/plugins/keypad/framework7.keypad.min.css">
+		
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/bp-general.css">
-		<link rel="apple-touch-icon" href="img/f7-icon-square.png">
+		
 		<link rel="icon" href="img/bt-icon.png">
 		
 		<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
@@ -28,6 +30,7 @@
 							<ul>
 								<li>
 									<a href="/home/" class="panel-close"><i class="f7-icons">home</i> Home</a>
+									<a href="/punch/" class="panel-close"><i class="f7-icons">time</i> Punch</a>
 									<a href="/about/" class="panel-close"><i class="f7-icons">info</i> About App</a>
 									<a href="/settings/" class="panel-close"><i class="f7-icons">settings</i> Settings</a>
 								</li>
@@ -71,6 +74,15 @@
 							</p>
 						</div>
 						
+						<div class="row logged-out">
+							<div class="col"></div>
+							<div class="col">
+								<button class="button button-fill button-big button-round " onClick="bp.login()">Login</button>
+							</div>
+							<div class="col"></div>
+						</div>
+						<br>
+						
 						<div class="error-report">
 							
 						</div>
@@ -78,8 +90,80 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		<div class="sheet-modal pin-sheet full-sheet">
+			<div class="toolbar">
+			  <div class="toolbar-inner">
+				<div class="left"><i class="f7-icons">login</i> Enter Your Pin</div>
+				<div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+			  </div>
+			</div>
+			<div class="sheet-modal-inner">
+				 <div class="page-content login-screen-content">
+					<form>
+					  <div class="block passcode-input">
+						<input type="text" value="_____" id="demo-numpad-inline">
+					  </div>
+					  <div class="block block-strong no-padding no-margin passcode-numpad">
+						<div id="numpad-inline-container"></div>
+					  </div>
+					</form>
+					<p class="text-center">
+						Please verify your pin to continue. If you cannot remember your pin, go to Settings->Hard Logout.
+					</p>
+				  </div>
+			</div>
+		</div>
+		
+		<div class="sheet-modal login-sheet full-sheet">
+			<div class="toolbar">
+			  <div class="toolbar-inner">
+				<div class="left"><i class="f7-icons">login</i> Login</div>
+				<div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+			  </div>
+			</div>
+			<div class="sheet-modal-inner">
+				<div class="page-content">
+					<!-- Close Popup -->
+					<form class="list" id="login-form" onsubmit="bp.tryEmailLogin()">
+						<ul>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<div class="item-title item-label">Email</div>
+										<div class="item-input-wrap">
+											<input type="email" id="bp-login-email" placeholder="jsmith@mysite.com" required>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<div class="item-title item-label">Password</div>
+										<div class="item-input-wrap">
+											<input type="password" id="bp-login-password"  placeholder="**********" required>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</form>
+					<div class="block block-strong row">
+						<div class="col"><button class="button button-outline button-small sheet-close" href="#">Login Help</button></div>
+						<div class="col"><button class="button button-fill bp-email-login" href="#">Login</button></div>
+					</div>
+					<script>
+						
+					</script>
+				</div>
+			</div>
+		</div>
+		
 		<script src="js/bpe-core.js"></script>
 		<script src="f7/js/framework7.min.js"></script>
+		<script src="f7/plugins/keypad/framework7.keypad.min.js"></script>
 		<script src="js/routes.js"></script>
 		<script src="js/app.js"></script>
 		<script src="cordova.js"></script>
