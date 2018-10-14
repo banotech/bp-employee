@@ -1,10 +1,10 @@
 // Dom7
 var $ = Dom7;
 
-var version = "104";
+var version = "105";
 
 // Theme
-var theme = "ios";
+var theme = "md";
 if(bp.storage.get("os-theme") != null) 
 	theme = bp.storage.get("os-theme");
 
@@ -49,7 +49,7 @@ var app = new Framework7({
  // iosDynamicNavbar: true, 
 });
 
-var mainView = app.views.create('.view-main');
+var mainView = app.views.create('#main-view');
 mainView.iosDynamicNavbar = false;
 
 function onBackKeyDown() {
@@ -76,3 +76,5 @@ function onDeviceReady() {
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	bp.init();
 }
+
+bp.addSubsystem("Punch System",punch);

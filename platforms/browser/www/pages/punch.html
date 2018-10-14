@@ -1,4 +1,4 @@
-<div class="page" data-name="profile">
+<div class="page" data-name="punch">
 	<div class="navbar">
 		<div class="navbar-inner sliding">
 			<div class="left">
@@ -15,19 +15,323 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div> 
 	<div class="page-content">
 		<div class="center-screen logged-out">
 			<div class="row">
 				<div class="col"></div>
 				<div class="col">
-					<button class="button button-fill button-big button-round popup-open" data-popup=".popup-about">Login</button>
+					<button class="button button-fill button-big button-round" onClick="bp.login()">Login</button>
 				</div>
 				<div class="col"></div>
 			</div>
 		</div>
 		<div class="logged-in">
-			
+			<div class="fab fab-right-bottom">
+				<a href="#" onclick="bp.punch.newPunch()">
+				  <i class="icon f7-icons">add</i>
+				</a>
+			  </div>
+			<div class="punch-header">
+				<h3>Active Punch</h3>
+				<div class="left">
+					<strong><u>Start</u></strong>
+					<div class="active-punch-start">
+					</div>
+				</div>
+				<div class="right">
+					<strong><u>End</u></strong>
+					<div class="active-punch-end">
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="no-active-punch">
+				
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<hr>
+			<div class="data-table punch-table">
+				<table>
+					<thead>
+						<tr>
+							<th class="label-cell">Property</th>
+							<th class="label-cell tablet-only">Date</th>
+							<th class="label-cell">Start</th>
+							<th class="label-cell">End</th>
+							<th class="numeric-cell tablet-only">Hours</th>
+							<th class="label-cell"></th>
+						</tr>
+					</thead>
+					<tbody class="table-contents">
+						<tr>
+							<td class="label-cell">No Punches</td>
+							<td class="label-cell tablet-only">1</td>
+							<td class="label-cell"></td>
+							<td class="label-cell"></td>
+							<td class="numeric-cell tablet-only"></td>
+							<td class="label-cell"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
+<div class="sheet-modal new-punch-sheet full-sheet">
+	<div class="toolbar">
+	  <div class="toolbar-inner">
+		<div class="left"><i class="f7-icons">add</i> New Punch</div>
+		<div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+	  </div>
+	</div>
+	<div class="sheet-modal-inner">
+		<div class="page-content">
+			<!-- Close Popup -->
+			<form class="list">
+				<ul>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Property</div>
+							<div class="item-input-wrap">
+								<input id="punch-prop-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+					<li>
+						<p class="segmented segmented-raised ptype-select">
+							<a href="#" class="ptb ptb-building button button-active" onclick="bp.punch.changePType('building')">By Building</a>
+							<a href="#" class="ptb ptb-unit button" onclick="bp.punch.changePType('unit')">By Unit</a>
+							<a href="#" class="ptb ptb-other button" onclick="bp.punch.changePType('other')">Other</a>
+						</p>
+					</li>
+					<li class="ptype ptype-building ptype-unit item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Building</div>
+							<div class="item-input-wrap">
+								<input id="punch-building-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+					<li class="ptype ptype-unit item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Unit</div>
+							<div class="item-input-wrap">
+								<input id="punch-unit-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+					<li class="ptype ptype-building ptype-unit ptype-other item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Specific Job</div>
+							<div class="item-input-wrap">
+								<input id="punch-other-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+				</ul>
+				
+				<hr>
+				
+				
+				<ul>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Date</div>
+							<div class="item-input-wrap">
+								<input id="punch-date-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Time</div>
+							<div class="item-input-wrap">
+								<input id="punch-time-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="block block-strong row">
+				<div class="col"><a class="button button-outline button-big sheet-close" href="#">Cancel</a></div>
+				<div class="col"><button class="button button-fill button-big" id="new-punch-submit" href="#">Punch In</button></div>
+			</div>
+			<script>
+				
+			</script>
+		</div>
+	</div>
+</div>
+<div class="sheet-modal punch-out-sheet full-sheet">
+	<div class="toolbar">
+	  <div class="toolbar-inner">
+		<div class="left"><i class="f7-icons">add</i> Punch Out</div>
+		<div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+	  </div>
+	</div>
+	<div class="sheet-modal-inner">
+		<div class="page-content">
+			<!-- Close Popup -->
+			<form class="list">
+			<h3>Existing Information:</h3>
+				<ul>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Peoperty</div>
+							<div class="item-input-wrap">
+								<input id="punch-out-property" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Building</div>
+							<div class="item-input-wrap">
+								<input id="punch-out-building" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Unit</div>
+							<div class="item-input-wrap">
+								<input id="punch-out-unit" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Job</div>
+							<div class="item-input-wrap">
+								<input id="punch-out-comment" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<h3>Punch Out Information:</h3>
+				<ul>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Date</div>
+							<div class="item-input-wrap">
+								<input id="punch-out-date-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Time</div>
+							<div class="item-input-wrap">
+								<input id="punch-out-time-autocomplete" type="text" placeholder="Start Typing...">
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<div class="block block-strong row">
+				<div class="col"><a class="button button-outline button-big sheet-close" href="#">Cancel</a></div>
+				<div class="col"><button class="button button-fill button-big" id="punch-out-submit" href="#">Punch Out</button></div>
+			</div>
+			<script>
+				
+			</script>
+		</div>
+	</div>
+</div>
+
+<div class="sheet-modal punch-info-sheet full-sheet">
+	<div class="toolbar">
+	  <div class="toolbar-inner">
+		<div class="left"><i class="f7-icons">add</i> Punch Info</div>
+		<div class="right"><a class="link sheet-close" href="#">Close</a></div>
+	  </div>
+	</div>
+	<div class="sheet-modal-inner">
+		<div class="page-content" style="padding-bottom:50px;">
+			<!-- Close Popup -->
+			<form class="list">
+				<ul>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Peoperty</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-property" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Building</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-building" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Unit</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-unit" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Job</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-comment" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Start Date</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-sdate" type="text"  placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Start Time</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-stime" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">End Date</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-edate" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">End Time</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-etime" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+					<li class="item-content item-input inline-label">
+						<div class="item-inner">
+							<div class="item-title item-label">Hours</div>
+							<div class="item-input-wrap">
+								<input id="punch-info-hours" type="text" placeholder="" readonly>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+			<hr>
+			<small>
+				<strong>IMPORTANT NOTE:</strong> Punches cannot be edited by users. Only administrators can edit punches. Please contact your supervisor to edit a punch.
+			</small>
+		</div>
+	</div>
+</div>
 </div>

@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="default">
-		<meta name="theme-color" content="#2196f3">
+		<meta name="theme-color" content="#999999">
 		<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
 		<title>Barrett Plumbing - Employee</title>
 		<link rel="stylesheet" href="f7/css/framework7.min.css">
@@ -13,13 +13,17 @@
 		
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/bp-general.css">
+		<link rel="stylesheet" href="css/bp-punch.css">
 		
 		<link rel="icon" href="img/bt-icon.png">
 		
 		<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
-
+		
+		
+		
 	</head>
 	<body class="">
+		
 		<div id="app">
 			<div class="statusbar"></div>
 			<div class="panel panel-left panel-cover">
@@ -45,7 +49,7 @@
 
 
 
-			<div class="view view-main view-init ios-edges" data-url="/">
+			<div class="view view-main view-init ios-edges" id="main-view" data-url="/">
 				<div class="page" data-name="home">
 					<div class="navbar">
 						<div class="navbar-inner">
@@ -162,10 +166,61 @@
 		</div>
 		
 		<script src="js/bpe-core.js"></script>
+		<script src="js/bpe-punch.js"></script>
 		<script src="f7/js/framework7.min.js"></script>
 		<script src="f7/plugins/keypad/framework7.keypad.min.js"></script>
 		<script src="js/routes.js"></script>
 		<script src="js/app.js"></script>
 		<script src="cordova.js"></script>
+		<style type="text/css">
+			#splash-bpe{
+				position:fixed;
+				width:100vw;
+				height:100vh;
+				top:0;
+				left:0;
+				background-color:black;
+				color:#999;
+				z-index:100000;
+				display:table;
+				transition:all 300ms ease-in;
+			}
+			#splash-bpe h3{
+				text-align:center;
+				display:table-cell; 
+				vertical-align:middle;
+				color:rgba(255,255,255,0.0);
+				transition:all 1000ms ease-in;
+			}
+		</style>
+		<div id="splash-bpe">
+			<h3>Loading Barrett Plumbing</h3>
+		</div>
+		<script>
+			$("#splash-bpe h3").css("color","rgba(255,255,255,1.0)");
+			var timeout = 3000;
+			var ot = 0;
+			var show = true;
+			while(ot < timeout){
+				ot+=1000;
+				setTimeout(function(){
+					if(show){
+						$("#splash-bpe h3").css("color","rgba(255,255,255,0.1)");
+						show = false;
+					}
+					else{
+						$("#splash-bpe h3").css("color","rgba(255,255,255,1.0)");
+						show = true;
+					}
+				},ot);
+			}
+			setTimeout(function(){
+				$("#splash-bpe").css("top","100vh");
+				setTimeout(function(){
+					$("#splash-bpe").remove();
+				},300);
+				
+			},ot+1000);
+		</script>
 	</body>
 </html>

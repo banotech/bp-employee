@@ -67,6 +67,8 @@ var bp = {
 			bp.verifyPin();
 		}else{
 			app.sheet.open(".login-sheet");
+			$("#bp-login-email").val("");
+			$("#bp-login-password").val("");
 		}
 	},
 	logout: function(){
@@ -217,7 +219,7 @@ var bp = {
 	},
 	checkColors: function(){
 		if(bp.storage.get("theme") == null){
-			bp.setLayoutTheme("light");
+			bp.setLayoutTheme("dark");
 		}
 		else{
 			bp.setLayoutTheme(bp.storage.get("theme"));
@@ -239,7 +241,8 @@ var bp = {
 		//bp = {bp,sys};
 		var obj3 = {};
 		for (var attrname in bp) { obj3[attrname] = bp[attrname];}
-		for (var attrname in sys) { obj3[attrname] = sys[attrname]; }
+		obj3[sys.name] = sys;
+		
 		bp = obj3;
 		console.log("Successfully added subsystem: "+name);
 	}

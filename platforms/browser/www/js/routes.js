@@ -28,8 +28,12 @@ var routes = [
 		name: "punch",
 		on: {
 			pageInit: function() {
-				bp.lockApp();
-				bp.verifyPin();
+				//bp.lockApp();
+				//bp.verifyPin();
+				//console.log(bp.punch);
+				bp.punch.init = undefined;
+				bp.punch.punchInit();
+				bp.punch.getPunches();
 			},
 		}
 	},

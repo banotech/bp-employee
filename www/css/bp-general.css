@@ -12,6 +12,7 @@
 	min-height:75vh;
 	
 }
+.clearfix::after{display:block;content:"";clear:both}
 .block.passcode-input {
       position: relative;
       z-index: 5;
